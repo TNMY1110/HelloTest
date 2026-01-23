@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\studyC\\HonGong0122\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D228793-5F8A-40F3-82B8-AA8552D1C6B2}|HonGong0122.vcxproj|C:\\studyC\\HonGong0122\\\uC911\uCCA9 \uBC18\uBCF5\uBB38.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1D228793-5F8A-40F3-82B8-AA8552D1C6B2}|HonGong0122.vcxproj|solutionrelative:\uC911\uCCA9 \uBC18\uBCF5\uBB38.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D228793-5F8A-40F3-82B8-AA8552D1C6B2}|HonGong0122.vcxproj|C:\\studyC\\HonGong0122\\\uBC18\uBCF5\uBB38.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1D228793-5F8A-40F3-82B8-AA8552D1C6B2}|HonGong0122.vcxproj|solutionrelative:\uBC18\uBCF5\uBB38.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "\uC911\uCCA9 \uBC18\uBCF5\uBB38.c",
+              "DocumentMoniker": "C:\\studyC\\HonGong0122\\\uC911\uCCA9 \uBC18\uBCF5\uBB38.c",
+              "RelativeDocumentMoniker": "\uC911\uCCA9 \uBC18\uBCF5\uBB38.c",
+              "ToolTip": "C:\\studyC\\HonGong0122\\\uC911\uCCA9 \uBC18\uBCF5\uBB38.c",
+              "RelativeToolTip": "\uC911\uCCA9 \uBC18\uBCF5\uBB38.c",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-22T06:22:54.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "\uBC18\uBCF5\uBB38.c",
+              "DocumentMoniker": "C:\\studyC\\HonGong0122\\\uBC18\uBCF5\uBB38.c",
+              "RelativeDocumentMoniker": "\uBC18\uBCF5\uBB38.c",
+              "ToolTip": "C:\\studyC\\HonGong0122\\\uBC18\uBCF5\uBB38.c",
+              "RelativeToolTip": "\uBC18\uBCF5\uBB38.c",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-22T05:21:37.879Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
