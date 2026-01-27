@@ -17,6 +17,9 @@ void main(void)
 
 int prime_check(int iNumber)
 {
+	if (iNumber <= 1)				// 숫자가 1보다 작거나 같다면 소수 아님
+		return 0;
+
 	for (int i = 2; i < iNumber; i++)	// 2부터 iNumber 이전까지 나눴을 때(iNumber가 2라면 그냥 통과하므로 상관 없음)
 	{
 		if (iNumber % i == 0)			// 나머지가 0이 나온다면 소수가 아니므로 0 반환
