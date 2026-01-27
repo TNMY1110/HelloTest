@@ -33,11 +33,18 @@ int disp_menu(void)
         printf("2. 콩나물국밥\n");
         printf("3. 바지락칼국수\n");
         printf("메뉴를 선택하세요 : ");
-        scanf_s("%d", &iSelect);
 
-        if (iSelect < 1 || iSelect > 3)     // 메뉴 번호가 제대로 입력되지 않은 경우
+        if (scanf_s("%d", &iSelect) == 1)       // 숫자를 입력 받을 경우
         {
-            printf("잘못된 입력입니다.\n");
+            if (iSelect < 1 || iSelect > 3)     // 메뉴 번호가 제대로 입력되지 않은 경우
+            {
+                printf("잘못된 입력입니다.\n");
+            }
+        }
+        else
+        {
+            printf("잘못된 입력입니다.\n");       // 문자열을 입력 받았을 때
+            while (getchar() != '\n');          // 입력 버퍼 초기화
         }
 
     } while (iSelect < 1 || iSelect > 3);   // 메뉴 안에서 고를 때까지 반복
