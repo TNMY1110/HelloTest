@@ -9,15 +9,15 @@ void main(void)
 	// 함수 명은 prime_check
 	int iNumber = 32767;	// 소수인지 확인할 변수
 
-	if (prime_check(iNumber) == 1)	// 소수면 "소수 맞음" 출력
-		printf("소수 맞음");
-	else							// 소수가 아니면 "소수 아님" 출력
-		printf("소수 아님");			
+	if (prime_check(iNumber) == 1)	// 소수면 "소수가 맞습니다" 출력
+		printf("소수가 맞습니다");
+	else							// 소수가 아니면 "소수가 아닙니다" 출력
+		printf("소수가 아닙니다");
 }
 
 int prime_check(int iNumber)
 {
-	for(int i = 2; i < iNumber; i++)	// 2부터 inumber 이전까지 나눴을 때(iNumber가 2라면 그냥 통과하므로 상관 없음)
+	for (int i = 2; i < iNumber; i++)	// 2부터 iNumber 이전까지 나눴을 때(iNumber가 2라면 그냥 통과하므로 상관 없음)
 	{
 		if (iNumber % i == 0)			// 나머지가 0이 나온다면 소수가 아니므로 0 반환
 		{
