@@ -2,7 +2,7 @@
 
 void main(void)
 {
-	
+
 	/*자동차 주행시간 측정 프로그램
 	거리(km)와 속력(km / h)을 입력받은 후에 시간을 계산하여 출력합니다.단, 다음 조건을 만족하도록 작성합니다.
 
@@ -15,16 +15,18 @@ void main(void)
 
 	// 거리 / 속력 = 시간
 	// 시간을 시 분 초로 나눠야함
-	// 필요한 변수: int형의 거리, 속력, 시, 분, 실수형의 시간, 초
+	// 필요한 변수: int형의 거리, 속력, 시, 분, 실수형의 시간, 초, 잔여시간
 
 	int iDist = 0;		// 입력받을 거리
 	int iKph = 0;		// 입력받을 속력
 	int iHour = 0, iMin = 0;		// 시, 분
 
-	double dTime = 0;		// 시간
+	double dTime = 0.0;		// 시간
 	double dSec = 0.f;		// 초
+	double dRemainTime = 0.0;	// 잔여시간
+	double dRemainSec = 0.0;	// 잔여초
 
-	printf("거리와 속력 입력 : ");		
+	printf("거리와 속력 입력 : ");
 	scanf_s("%d %d", &iDist, &iKph);	// 거리와 속력 입력
 
 	// 시간 = 거리 / 속력 
@@ -32,6 +34,11 @@ void main(void)
 	dTime = (double)iDist / (double)iKph;
 
 	// 시간을 시 분 초로 바꿔줘야함
+	iHour = (int)dTime;		// 시간은 정수로 변환하여 소수점 날려 시 얻기
+	dRemainTime = dTime - (double)iHour;		// 소수점 이하 잔여시간 얻기
+	iMin = (int)(dRemainTime / (1.0 / 60.0));	// 분 = 잔여 시간 / 1분
+	dRemainSec = dRemainTime - (double)iMin * (1.0 / 60.0);		// 잔여 초는 잔여시간에서 분만큼 빼기
+	dSec = dRemainSec / (1.0 / 3600.0);			// 초 = 잔여 초 / 1초
 
 	printf("소요 시간은 %d시간 %d분 %.3lf초입니다.", iHour, iMin, dSec);
 }
