@@ -11,14 +11,27 @@ void main(void)
 
 	#### 실행결과
 	거리와 속력 입력 : 420 65 (Enter)
-	소요 시가은 6시간 27분.538초입니다."*/
+	소요 시간은 6시간 27분.538초입니다."*/
 
 	// 거리 / 속력 = 시간
 	// 시간을 시 분 초로 나눠야함
-	// 필요한 변수: int형의 거리, 속력, 시간, 시, 분, 초
+	// 필요한 변수: int형의 거리, 속력, 시, 분, 실수형의 시간, 초
+
 	int iDist = 0;		// 입력받을 거리
 	int iKph = 0;		// 입력받을 속력
-	int iTime = 0;		// 시간
-	int iHour = 0, iMin = 0, iSec = 0;		// 시, 분, 초
+	int iHour = 0, iMin = 0;		// 시, 분
 
+	double dTime = 0;		// 시간
+	double dSec = 0.f;		// 초
+
+	printf("거리와 속력 입력 : ");		
+	scanf_s("%d %d", &iDist, &iKph);	// 거리와 속력 입력
+
+	// 시간 = 거리 / 속력 
+	// 주의점: 실수형으로 변환해서 계산해줘야 실수형으로 계산이 됨
+	dTime = (double)iDist / (double)iKph;
+
+	// 시간을 시 분 초로 바꿔줘야함
+
+	printf("소요 시간은 %d시간 %d분 %.3lf초입니다.", iHour, iMin, dSec);
 }
