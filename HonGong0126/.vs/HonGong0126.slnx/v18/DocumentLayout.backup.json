@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\405\\projects\\HonGong0126\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|C:\\Users\\405\\projects\\HonGong0126\\PointerPractice.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|solutionrelative:PointerPractice.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|C:\\Users\\405\\projects\\HonGong0126\\Array.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|solutionrelative:Array.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|C:\\Users\\405\\projects\\HonGong0126\\Pointer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|solutionrelative:Pointer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|C:\\Users\\405\\projects\\HonGong0126\\HonGong.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B82E89E-A221-4ABE-A5A8-3C5411CF8FC2}|HonGong0126.vcxproj|solutionrelative:HonGong.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PointerPractice.c",
+              "DocumentMoniker": "C:\\Users\\405\\projects\\HonGong0126\\PointerPractice.c",
+              "RelativeDocumentMoniker": "PointerPractice.c",
+              "ToolTip": "C:\\Users\\405\\projects\\HonGong0126\\PointerPractice.c",
+              "RelativeToolTip": "PointerPractice.c",
+              "ViewState": "AgIAADwAAAAAAAAAAAAswFEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-26T06:37:29.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pointer.c",
+              "DocumentMoniker": "C:\\Users\\405\\projects\\HonGong0126\\Pointer.c",
+              "RelativeDocumentMoniker": "Pointer.c",
+              "ToolTip": "C:\\Users\\405\\projects\\HonGong0126\\Pointer.c",
+              "RelativeToolTip": "Pointer.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-26T04:19:03.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Array.c",
+              "DocumentMoniker": "C:\\Users\\405\\projects\\HonGong0126\\Array.c",
+              "RelativeDocumentMoniker": "Array.c",
+              "ToolTip": "C:\\Users\\405\\projects\\HonGong0126\\Array.c",
+              "RelativeToolTip": "Array.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-26T01:05:05.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HonGong.c",
+              "DocumentMoniker": "C:\\Users\\405\\projects\\HonGong0126\\HonGong.c",
+              "RelativeDocumentMoniker": "HonGong.c",
+              "ToolTip": "C:\\Users\\405\\projects\\HonGong0126\\HonGong.c",
+              "RelativeToolTip": "HonGong.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-01-26T02:06:02.245Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
