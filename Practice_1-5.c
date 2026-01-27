@@ -6,6 +6,14 @@ int disp_menu(void);
 int main(void)
 {
     /* 다음의 main함수와 실행결과를 참고하여 함수를 추가하고 프로그램을 완성합니다. */
+    /*
+        #### 실행결과
+        1. 볶음짬뽕
+        2. 콩나물국밥
+        3. 바지락칼국수
+        #메뉴를 선택하세요 : 2 (Enter)
+        선택된 메뉴는 2번입니다. "
+    */
     int sel;
 
     sel = disp_menu();
@@ -16,5 +24,23 @@ int main(void)
 
 int disp_menu(void)
 {
-    return 0;
+    int iSelect = 0;
+
+    // 메뉴 출력
+    do
+    {
+        printf("1. 볶음짬뽕\n");
+        printf("2. 콩나물국밥\n");
+        printf("3. 바지락칼국수\n");
+        printf("메뉴를 선택하세요 : ");
+        scanf_s("%d", &iSelect);
+
+        if (iSelect < 1 || iSelect > 3)     // 메뉴 번호가 제대로 입력되지 않은 경우
+        {
+            printf("잘못된 입력입니다.\n");
+        }
+
+    } while (iSelect < 1 || iSelect > 3);   // 메뉴 안에서 고를 때까지 반복
+
+    return iSelect;
 }
