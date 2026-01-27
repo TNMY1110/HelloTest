@@ -10,7 +10,7 @@ void main(void)
 	// 양수 입력: 10(Enter)
 	// 양수 입력: -1(Enter)
 	// 누적된 값: 15
-	int iNum = 1;			// 입력받을 변수(0 초과여야 반복하므로 1로 초기화)
+	int iNum = 0;			// 입력받을 변수
 	int iTotal = 0;			// 입력받은 값을 누적할 변수
 
 	while(1)
