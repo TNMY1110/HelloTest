@@ -21,6 +21,7 @@ void main(void)
 	int iCount = 0;				// 유효 점수 3개를 셀 카운트
 	int iMax = -1;				// 최고점
 	int iMin = _CRT_INT_MAX;	// 최저점
+	int iTotal = 0;				// 유효점수 총점
 	float fAver = 0.f;			// 평균을 저장할 변수
 
 	printf("5명 심사위원의 점수 입력 : ");
@@ -57,12 +58,20 @@ void main(void)
 		iValScore[iCount] = iScore[i];	// 최고점과 최저점이 아닐 경우 유효 점수 변경
 		iCount++;						// 카운트 증가
 
-		if (iCount == 3)				// 만일을 대비해 카운트가 다 찼을 경우 반복문 종료
+		if (iCount == 3)				// 배열 넘어서는걸 대비해 카운트가 다 찼을 경우 반복문 종료
 			break;
 	}
 
-	// 유효점수와 평균 계산 후 출력
-	printf("\n");
 	printf("유효점수 : ");	// 유효점수 출력
-	printf("평균 : ");		// 평균 출력
+
+	for (int i = 0; i < 3; i++)
+	{
+		printf("%d ", iValScore[i]);
+		iTotal += iValScore[i];			// 유효점수 합산
+	}
+
+	fAver = (float)iTotal / 3.0f;		// 평균 계산
+
+	printf("\n");
+	printf("평균 : %.2lf", fAver);		// 평균 출력
 }
