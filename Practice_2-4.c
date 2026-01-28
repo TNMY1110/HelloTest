@@ -23,14 +23,16 @@ void main(void)
     int iNum2 = 2;
     int iNum3 = 3;
 
-    // 값이 하니씩 왼쪽으로 이동하고 맨 왼쪽 값은 오른쪽으로 이동해야 함
-    printf("%d : %d : %d", iNum1, iNum2, iNum3);
+    do
+    {
+        // 값이 하니씩 왼쪽으로 이동하고 맨 왼쪽 값은 오른쪽으로 이동해야 함
+        printf("%d : %d : %d", iNum1, iNum2, iNum3);
 
-    // 엔터를 입력할 때 마다 값을 이동하고, 엔터 이외의 키를 입력하면 종료
-    scanf_s("%c", &chInput);
+        // 엔터를 입력할 때 마다 값을 이동하고, 엔터 이외의 키를 입력하면 종료
+        scanf_s("%c", &chInput);
 
-    // 세변수의 값을 동시에 바꾸는 함수를 만들어 사용
-    rotate(&iNum1, &iNum2, &iNum3);
+        rotate(&iNum1, &iNum2, &iNum3);     // 세변수의 값을 동시에 바꾸는 함수를 만들어 사용
+    } while (chInput == '\n');
 
     /*
     실행결과
