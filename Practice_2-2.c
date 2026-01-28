@@ -20,15 +20,28 @@ void main(void)
 	로또번호 입력 : 44 (Enter)
 	입력된 로또번호 : 7 9 15 20 33 44
 	*/
-	
+
 	int iNum[6] = { 0 };			// 6개의 번호를 저장할 배열
 	int iCount = 0;					// 카운트
 
-	printf("로또번호 입력 : ");
-	scanf_s("%d", &iNum[iCount]);
+	while (iCount < 6)
+	{
+		printf("로또번호 입력 : ");
+		scanf_s("%d", &iNum[iCount]);
 
-	printf("같은 번호가 있습니다.!\n");		// 중복 오류 메시지
+		for (int i = 0; i < 6; i++)		// 중복 번호 확인을 위한 반복문
+		{
+			// 중복되는 번호가 있다면
+			printf("같은 번호가 있습니다.!\n");		// 중복 오류 메시지 출력
 
-	printf("입력된 로또번호 : ");
-	printf("%d ", iNum[iCount]);
+			// 없다면 카운트 증가
+			iCount++;
+		}
+	}
+	// 카운트가 6까지 다 찼다면
+	printf("입력된 로또번호 : ");			// 번호 출력
+	for (int i = 0; i < 6; i++)
+	{
+		printf("%d ", iNum[i]);
+	}
 }
