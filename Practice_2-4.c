@@ -25,14 +25,11 @@ void main(void)
 
     do
     {
-        // 값이 하니씩 왼쪽으로 이동하고 맨 왼쪽 값은 오른쪽으로 이동해야 함
-        printf("%d : %d : %d", iNum1, iNum2, iNum3);
+        printf("%d : %d : %d", iNum1, iNum2, iNum3);    // 숫자 출력
+        scanf_s("%c", &chInput);                        // 입력
 
-        // 엔터를 입력할 때 마다 값을 이동하고, 엔터 이외의 키를 입력하면 종료
-        scanf_s("%c", &chInput);
-
-        rotate(&iNum1, &iNum2, &iNum3);     // 세변수의 값을 동시에 바꾸는 함수를 만들어 사용
-    } while (chInput == '\n');
+        rotate(&iNum1, &iNum2, &iNum3);     // 세변수의 값을 동시에 바꾸는 함수
+    } while (chInput == '\n');              // 엔터 이외의 키를 입력하면 종료
 
     /*
     실행결과
@@ -46,4 +43,9 @@ void main(void)
 
 void rotate(int* pa, int* pb, int* pc)
 {
+    int temp = *pa;
+
+    *pa = *pb;
+    *pb = *pc;
+    *pc = temp;
 }
