@@ -30,26 +30,38 @@ void main(void)
 	while (iCount < 6)
 	{
 		printf("로또번호 입력 : ");
-		scanf_s("%d", &iInput);
-
-		for (int i = 0; i < 6; i++)		// 중복 번호 확인을 위한 반복문
+		if (scanf_s("%d", &iInput) == 1)	// 숫자를 입력 받았다면
 		{
-			if (iInput == iNum[i])		// 중복되는 번호가 있다면
+			if (iInput > 45 || iInput < 1)
 			{
-				printf("같은 번호가 있습니다!\n");		// 중복 오류 메시지 출력
-				isDupl = true;
+				printf("잘못된 입력입니다!\n");
+				continue;
+			}
+
+			for (int i = 0; i < 6; i++)		// 중복 번호 확인을 위한 반복문
+			{
+				if (iInput == iNum[i])		// 중복되는 번호가 있다면
+				{
+					printf("같은 번호가 있습니다!\n");		// 중복 오류 메시지 출력
+					isDupl = true;
+				}
+			}
+
+			if (isDupl)			// 중복이 있다면 반복
+			{
+				isDupl = false;
+				continue;
+			}
+			else				// 없다면 카운트 증가
+			{
+				iNum[iCount] = iInput;
+				iCount++;
 			}
 		}
-
-		if (isDupl)			// 중복이 있다면 반복
+		else
 		{
-			isDupl = false;
-			continue;
-		}
-		else				// 없다면 카운트 증가
-		{
-			iNum[iCount] = iInput;
-			iCount++;
+			printf("잘못된 입력입니다!\n");       // 문자열을 입력 받았을 때
+			while (getchar() != '\n');			// 입력 버퍼 초기화
 		}
 	}
 	// 카운트가 6까지 다 찼다면
