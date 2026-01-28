@@ -11,7 +11,7 @@ void main(void)
     키보드로 입력한 양수를 4로 나누어 몫과 나머지를 변수에 저장하는 함수를 만듭니다.
     다음 main 함수와 실행결과를 참고하여 작성합니다.
     */
-    
+
     int mod = 0;    // 몫
     int rem = 0;    // 나머지
 
@@ -25,6 +25,14 @@ void main(void)
     */
 }
 
+// 입력한 양수를 4로 나누어 몫과 나머지를 변수에 저장하는 함수
 void func(int* mod, int* rem)
 {
+    int iInput = 0;
+    printf("양수 입력 : ");
+    scanf_s("%d", &iInput);     // 양수 입력
+
+    // 양수를 4로 나누어 몫과 나머지를 저장
+    *mod = iInput / 4;
+    *rem = iInput % 4;
 }
