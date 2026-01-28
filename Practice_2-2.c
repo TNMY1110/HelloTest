@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <stdbool.h>
 
 void main(void)
 {
@@ -22,19 +23,32 @@ void main(void)
 	*/
 
 	int iNum[6] = { 0 };			// 6개의 번호를 저장할 배열
+	int iInput = 0;					// 입력받을 번호
 	int iCount = 0;					// 카운트
+	bool isDupl = false;			// 중복 확인
 
 	while (iCount < 6)
 	{
 		printf("로또번호 입력 : ");
-		scanf_s("%d", &iNum[iCount]);
+		scanf_s("%d", &iInput);
 
 		for (int i = 0; i < 6; i++)		// 중복 번호 확인을 위한 반복문
 		{
-			// 중복되는 번호가 있다면
-			printf("같은 번호가 있습니다.!\n");		// 중복 오류 메시지 출력
+			if (iInput == iNum[i])		// 중복되는 번호가 있다면
+			{
+				printf("같은 번호가 있습니다!\n");		// 중복 오류 메시지 출력
+				isDupl = true;
+			}
+		}
 
-			// 없다면 카운트 증가
+		if (isDupl)			// 중복이 있다면 반복
+		{
+			isDupl = false;
+			continue;
+		}
+		else				// 없다면 카운트 증가
+		{
+			iNum[iCount] = iInput;
 			iCount++;
 		}
 	}
