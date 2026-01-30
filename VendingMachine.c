@@ -6,7 +6,7 @@
 
 void Print_Goods(char** chProducts, int* iPrices);		// 상품 출력
 int Select_Goods(char** chProducts, int* iPrices);		// 상품 선택, 고른 상품 가격 출력
-void Insert_Money();		// 금액 투입
+int Insert_Money(int iPrice);		// 금액 투입
 
 int main(void)
 {
@@ -16,6 +16,7 @@ int main(void)
 
 	Print_Goods(&chProducts, &iPrices);
 	iSelect = Select_Goods(&chProducts, &iPrices);
+	Insert_Money(iPrices[iSelect]);
 
 	return 0;
 }
@@ -57,9 +58,30 @@ int Select_Goods(char** chProducts, int* iPrices)		// 상품 선택
 			while (getchar() != '\n');		// 버퍼 비우기
 	}
 
-	return iSelect;
+	return iSelect - 1;		// 선택이 1~4이므로 1 빼주기
 }
 
-void Insert_Money()
+int Insert_Money(int iPrice)		// 금액 투입
 {
+	int iMoney = 0;
+	int iInput = 0;
+
+	printf("\n돈을 넣어주세요.\n");
+
+	while (iMoney < iPrice)
+	{
+		printf("현재 금액: %d원\n", iMoney);
+		printf("투입: ");
+		scanf_s("%d", &iInput);
+
+		iMoney += iInput;
+
+		if (iMoney < iPrice)
+		{
+			printf("%d원 부족합니다.\n", iPrice - iMoney);
+		}
+	}
+	printf("\n금액이 충분합니다!\n");
+
+	return iMoney - iPrice;		// 넣은 돈에서 가격만큼 빼고 반환
 }
