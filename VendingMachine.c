@@ -8,7 +8,7 @@ void Print_Goods(char** chProducts, int* iPrices, int* iStock);		// 상품 출�
 void Check_Stock(char** chProducts, int* iPrices, int* iStock, int iMenu);	// 재고 여부에 따라 출력
 int Select_Goods(char** chProducts, int* iPrices, int* iStock);		// 상품 선택, 고른 상품 가격 출력
 bool Select_Purchase(bool isRestart);			// 구입 혹은 취소 선택
-bool Select_Cash_Card();
+bool Select_Cash_Card();					// 결제수단 선택
 int Insert_Money(int iPrice);				// 금액 투입
 bool Insert_Card(int iPrice, int* iCard);	// 카드 투입
 void Purchase_Completed(char* chProducts, int* iStock);	// 구매 완료
@@ -28,33 +28,33 @@ int main(void)
 	int iSelect = 0;		// 선택한 상품 번호
 	int iChange = 0;		// 거스름돈
 
+	printf("카드 잔액: %d원\n", iCard);
+
 	while (isRestart)
 	{
-		printf("카드 잔액: %d원\n", iCard);
-
 		while (!isPurchase)		// 구매 선택
 		{
-			Print_Goods(&chGoods, &iPrices, &iStock);
-			iSelect = Select_Goods(&chGoods, &iPrices, &iStock);
-			isPurchase = Select_Purchase(false);
+			Print_Goods(&chGoods, &iPrices, &iStock);		// 상품명, 가격, 재고 출력
+			iSelect = Select_Goods(&chGoods, &iPrices, &iStock);	// 상품 선택
+			isPurchase = Select_Purchase(false);			// 구매 여부 선택
 		}
-		isCard = Select_Cash_Card();
+		isCard = Select_Cash_Card();	// 결제수단 선택
 
-		if (isCard)
+		if (isCard)		// 카드 사용시
 		{
 			isCard = Insert_Card(iPrices[iSelect], &iCard);
 		}
 
-		if (!isCard)
+		if (!isCard)		// 현금 결제 선택 || 카드 승인 거절시
 		{
 			iChange = Insert_Money(iPrices[iSelect]);
 		}
 
-		Purchase_Completed(chGoods[iSelect], &iStock[iSelect]);
-		Get_Back_Change(iChange, iCard);
+		Purchase_Completed(chGoods[iSelect], &iStock[iSelect]);		// 구매 완료 출력
+		Get_Back_Change(iChange, iCard);		// 거스름돈, 카드 잔액 출력
 
 		isPurchase = false;		// 구매 선택 초기화
-		isRestart = Select_Purchase(isRestart);	// 재구매
+		isRestart = Select_Purchase(isRestart);	// 재구매 선택
 	}
 
 	return 0;
