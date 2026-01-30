@@ -47,7 +47,7 @@ int main(void)
 void Print_Goods(char** chProducts, int* iPrices, int* iStock)	// 이미 "콜라"같은게 문자열이라 chProducts는 문자열의 배열이므로 이중 포인터로 매개변수 받기
 {
 	printf("=========메뉴=========\n");
-	for(int i = 0; i < MENU; i++)
+	for (int i = 0; i < MENU; i++)
 	{
 		Check_Stock(chProducts, iPrices, iStock, i);
 	}
@@ -113,7 +113,7 @@ bool Select_Purchase(bool isRestart)
 
 		printf("구매하시겠습니까?(y/n): ");
 
-		if (scanf_s("%c", &chSelect) == 1)
+		if (scanf_s("%c", &chSelect) == 1)		// 입력 검사
 		{
 			if (chSelect == 'Y' || chSelect == 'y')
 			{
@@ -125,15 +125,14 @@ bool Select_Purchase(bool isRestart)
 			}
 			else		// 오입력 방지
 			{
-				printf("잘못 입력하셨습니다.\n");
+				printf("\n잘못된 입력입니다.\n");
 				while (getchar() != '\n');		// 입력 버퍼 초기화
 				continue;
 			}
 		}
-
-		else
+		else		// 입력 검사 통과 못했을 시
 		{
-			printf("잘못 입력하셨습니다.\n");
+			printf("\n잘못된 입력입니다.\n");
 			while (getchar() != '\n');		// 입력 버퍼 초기화
 			continue;
 		}
