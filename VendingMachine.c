@@ -44,16 +44,14 @@ int main(void)
 	return 0;
 }
 
-void Print_Goods(char** chProducts, int* iPrices, int* iStock)	// 이미 "콜라"같은게 char의 배열이라 chProducts는 배열의 배열이므로 이중 포인터로 매개변수 받기
+void Print_Goods(char** chProducts, int* iPrices, int* iStock)	// 이미 "콜라"같은게 문자열이라 chProducts는 문자열의 배열이므로 이중 포인터로 매개변수 받기
 {
 	printf("=========메뉴=========\n");
-	Check_Stock(chProducts, iPrices, iStock, 0);
-	Check_Stock(chProducts, iPrices, iStock, 1);
-	Check_Stock(chProducts, iPrices, iStock, 2);
-	Check_Stock(chProducts, iPrices, iStock, 3);
+	for(int i = 0; i < MENU; i++)
+	{
+		Check_Stock(chProducts, iPrices, iStock, i);
+	}
 	printf("======================\n");
-
-	return 0;
 }
 
 void Check_Stock(char** chProducts, int* iPrices, int* iStock, int iMenu)
@@ -175,7 +173,7 @@ void Purchase_Completed(char* chProducts, int* iStock)
 {
 	printf("\n=== 구매 완료 ===\n");
 	printf("[%s]이/가 나옵니다.\n", chProducts);
-	*iStock -= 1;
+	*iStock -= 1;		// 재고 감소
 }
 
 void Get_Back_Change(int iChange)
