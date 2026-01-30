@@ -6,14 +6,16 @@
 
 void Print_Goods(char** chProducts, int* iPrices);		// 상품 출력
 int Select_Goods(char** chProducts, int* iPrices);		// 상품 선택, 고른 상품 가격 출력
+void Insert_Money();		// 금액 투입
 
 int main(void)
 {
 	char* chProducts[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };
 	int iPrices[MENU] = { 1400, 1400, 1200, 1000 };
+	int iSelect = 0;
 
 	Print_Goods(&chProducts, &iPrices);
-	Select_Goods(&chProducts, &iPrices);
+	iSelect = Select_Goods(&chProducts, &iPrices);
 
 	return 0;
 }
@@ -40,14 +42,14 @@ int Select_Goods(char** chProducts, int* iPrices)		// 상품 선택
 
 		if (scanf_s("%d", &iSelect) == 1)			// 입력값이 정수라면
 		{
-			if (iSelect > MENU || iSelect < 0)		// 만약 선택이 범위에서 벗어난다면
+			if (iSelect > MENU || iSelect < 1)		// 만약 선택이 범위에서 벗어난다면
 			{
 				printf("\n잘못된 입력입니다.\n");
 			}
 
 			else			// 선택 완료시
 			{
-				printf("\n[%s]울/를 선택하셨습니다. %d원입니다.\n", chProducts[iSelect], iPrices[iSelect]);
+				printf("\n[%s]울/를 선택하셨습니다. %d원입니다.\n", chProducts[iSelect - 1], iPrices[iSelect - 1]);
 				break;
 			}
 		}
@@ -56,4 +58,8 @@ int Select_Goods(char** chProducts, int* iPrices)		// 상품 선택
 	}
 
 	return iSelect;
+}
+
+void Insert_Money()
+{
 }
