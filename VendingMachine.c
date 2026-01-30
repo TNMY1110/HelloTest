@@ -8,13 +8,18 @@ void Print_Goods(char** chProducts, int* iPrices);		// 상품 출력
 int Select_Goods(char** chProducts, int* iPrices);		// 상품 선택, 고른 상품 가격 출력
 bool Select_Purchase_Cancle(void);		// 구입 혹은 취소 선택
 int Insert_Money(int iPrice);		// 금액 투입
+void Purchase_Completed(char* chProducts);	// 구매 완료
+void Get_Back_Change(int iChange);			// 잔돈 반환
 
 int main(void)
 {
-	char* chProducts[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };
-	bool isPurchase = false;
-	int iPrices[MENU] = { 1400, 1400, 1200, 1000 };
-	int iSelect = 0;
+	bool isPurchase = false;	// 상품 구매 선택
+
+	char* chProducts[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };	// 상품 이름
+	int iPrices[MENU] = { 1400, 1400, 1200, 1000 };						// 상품 가격
+
+	int iSelect = 0;		// 선택한 상품 번호
+	int iChange = 0;		// 거스름돈
 
 	while (!isPurchase)		// 구매 선택
 	{
@@ -23,7 +28,9 @@ int main(void)
 		isPurchase = Select_Purchase_Cancle();
 	}
 
-	Insert_Money(iPrices[iSelect]);
+	iChange = Insert_Money(iPrices[iSelect]);
+	Purchase_Completed(chProducts[iSelect]);
+	Get_Back_Change(iChange);
 
 	return 0;
 }
@@ -122,4 +129,18 @@ int Insert_Money(int iPrice)		// 금액 투입
 	printf("\n금액이 충분합니다!\n");
 
 	return iMoney - iPrice;		// 넣은 돈에서 가격만큼 빼고 반환
+}
+
+void Purchase_Completed(char* chProducts)
+{
+	printf("\n=== 구매 완료 ===\n");
+	printf("[%s]이/가 나옵니다.\n", chProducts);
+}
+
+void Get_Back_Change(int iChange)
+{
+	if (iChange > 0)		// 거스름돈이 0원 이상이라면
+	{
+		printf("거스름돈: %d원\n", iChange);		// 거스름돈 출력
+	}
 }
