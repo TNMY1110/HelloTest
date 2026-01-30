@@ -6,13 +6,14 @@
 
 void Print_Goods(char** chProducts, int* iPrices);		// 상품 출력
 int Select_Goods(char** chProducts, int* iPrices);		// 상품 선택, 고른 상품 가격 출력
-bool Select_Purchase_Cancle(void);		// 구입 혹은 취소 선택
+bool Select_Purchase(bool isRestart);			// 구입 혹은 취소 선택
 int Insert_Money(int iPrice);		// 금액 투입
 void Purchase_Completed(char* chProducts);	// 구매 완료
 void Get_Back_Change(int iChange);			// 잔돈 반환
 
 int main(void)
 {
+	bool isRestart = true;		// 상품 구매 반복할건지
 	bool isPurchase = false;	// 상품 구매 선택
 
 	char* chProducts[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };	// 상품 이름
@@ -21,16 +22,22 @@ int main(void)
 	int iSelect = 0;		// 선택한 상품 번호
 	int iChange = 0;		// 거스름돈
 
-	while (!isPurchase)		// 구매 선택
+	while (isRestart)
 	{
-		Print_Goods(&chProducts, &iPrices);
-		iSelect = Select_Goods(&chProducts, &iPrices);
-		isPurchase = Select_Purchase_Cancle();
-	}
+		while (!isPurchase)		// 구매 선택
+		{
+			Print_Goods(&chProducts, &iPrices);
+			iSelect = Select_Goods(&chProducts, &iPrices);
+			isPurchase = Select_Purchase(false);
+		}
 
-	iChange = Insert_Money(iPrices[iSelect]);
-	Purchase_Completed(chProducts[iSelect]);
-	Get_Back_Change(iChange);
+		iChange = Insert_Money(iPrices[iSelect]);
+		Purchase_Completed(chProducts[iSelect]);
+		Get_Back_Change(iChange);
+
+		isPurchase = false;		// 구매 선택 초기화
+		isRestart = Select_Purchase(isRestart);	// 재구매
+	}
 
 	return 0;
 }
@@ -75,7 +82,7 @@ int Select_Goods(char** chProducts, int* iPrices)		// 상품 선택
 	return iSelect - 1;		// 선택이 1~4이므로 1 빼주기
 }
 
-bool Select_Purchase_Cancle(void)
+bool Select_Purchase(bool isRestart)
 {
 	char chSelect;
 
@@ -83,21 +90,33 @@ bool Select_Purchase_Cancle(void)
 
 	while (true)
 	{
-		printf("구매하시겠습니까?(y/n): ");
-		scanf_s("%c", &chSelect);
+		if (isRestart)
+			printf("다시 ");
 
-		if (chSelect == 'Y' || chSelect == 'y')
+		printf("구매하시겠습니까?(y/n): ");
+
+		if (scanf_s("%c", &chSelect) == 1)
 		{
-			return true;
+			if (chSelect == 'Y' || chSelect == 'y')
+			{
+				return true;
+			}
+			else if (chSelect == 'N' || chSelect == 'n')
+			{
+				return false;
+			}
+			else		// 오입력 방지
+			{
+				printf("잘못 입력하셨습니다.\n");
+				while (getchar() != '\n');		// 입력 버퍼 초기화
+				continue;
+			}
 		}
-		else if (chSelect == 'N' || chSelect == 'n')
-		{
-			return false;
-		}
-		else		// 오입력 방지
+
+		else
 		{
 			printf("잘못 입력하셨습니다.\n");
-			while (getchar() != '\n');		// 버퍼 초기화
+			while (getchar() != '\n');		// 입력 버퍼 초기화
 			continue;
 		}
 	}
@@ -115,6 +134,7 @@ int Insert_Money(int iPrice)		// 금액 투입
 
 	while (iMoney < iPrice)
 	{
+		while (getchar() != '\n');	// 입력 버퍼 초기화
 		printf("현재 금액: %d원\n", iMoney);
 		printf("투입: ");
 		scanf_s("%d", &iInput);
