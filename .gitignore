@@ -2,6 +2,8 @@
 *
 # c파일만 허용
 !*.c
+!*.png
+!*.jpg
 
 # .gitignore도 추적이 되야함
 !.gitignore
