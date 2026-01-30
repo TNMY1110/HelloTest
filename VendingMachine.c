@@ -17,7 +17,7 @@ int main(void)
 	bool isRestart = true;		// 상품 구매 반복할건지
 	bool isPurchase = false;	// 상품 구매 선택
 
-	char* chProducts[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };	// 상품 이름
+	char* chGoods[MENU] = { "콜라", "사이다", "초콜릿", "새콤달콤" };	// 상품 이름
 	int iPrices[MENU] = { 1400, 1400, 1200, 1000 };						// 상품 가격
 	int iStock[MENU] = { 5, 4, 3, 2 };		// 상품 재고
 
@@ -28,13 +28,13 @@ int main(void)
 	{
 		while (!isPurchase)		// 구매 선택
 		{
-			Print_Goods(&chProducts, &iPrices, &iStock);
-			iSelect = Select_Goods(&chProducts, &iPrices, &iStock);
+			Print_Goods(&chGoods, &iPrices, &iStock);
+			iSelect = Select_Goods(&chGoods, &iPrices, &iStock);
 			isPurchase = Select_Purchase(false);
 		}
 
 		iChange = Insert_Money(iPrices[iSelect]);
-		Purchase_Completed(chProducts[iSelect], &iStock[iSelect]);
+		Purchase_Completed(chGoods[iSelect], &iStock[iSelect]);
 		Get_Back_Change(iChange);
 
 		isPurchase = false;		// 구매 선택 초기화
@@ -109,7 +109,7 @@ bool Select_Purchase(bool isRestart)
 	while (true)
 	{
 		if (isRestart)
-			printf("다시 ");
+			printf("\n다시 ");
 
 		printf("구매하시겠습니까?(y/n): ");
 
@@ -147,20 +147,35 @@ int Insert_Money(int iPrice)		// 금액 투입
 	int iInput = 0;
 
 	printf("\n돈을 넣어주세요.\n");
-	printf("가격: %d원\n", iPrice);
 
 	while (iMoney < iPrice)
 	{
 		while (getchar() != '\n');	// 입력 버퍼 초기화
+		printf("가격: %d원\n", iPrice);
 		printf("현재 금액: %d원\n", iMoney);
 		printf("투입: ");
-		scanf_s("%d", &iInput);
 
-		iMoney += iInput;
-
-		if (iMoney < iPrice)
+		if (scanf_s("%d", &iInput) == 1)		// 입력 검사
 		{
-			printf("\n%d원 부족합니다.\n", iPrice - iMoney);
+			if (iInput > 0)		// 입력값이 0 초과일 경우
+			{
+				iMoney += iInput;
+
+				if (iMoney < iPrice)
+				{
+					printf("\n%d원 부족합니다.\n", iPrice - iMoney);
+				}
+			}
+			else		// 입력값이 0 이하일 경우
+			{
+				printf("\n잘못된 입력입니다.\n");
+				continue;
+			}
+		}
+		else		// 오입력시
+		{
+			printf("\n잘못된 입력입니다.\n");
+			continue;
 		}
 	}
 	printf("\n금액이 충분합니다!\n");
@@ -177,7 +192,7 @@ void Purchase_Completed(char* chProducts, int* iStock)
 
 void Get_Back_Change(int iChange)
 {
-	if (iChange > 0)		// 거스름돈이 0원 이상이라면
+	if (iChange > 0)		// 거스름돈이 0원 초과라면
 	{
 		printf("거스름돈: %d원\n", iChange);		// 거스름돈 출력
 	}
